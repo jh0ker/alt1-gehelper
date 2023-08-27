@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import ReactDOM from "react-dom"
+import ReactDOM from "react-dom/client"
 import { mixColor } from "@alt1/base"
 
 import "./styles.css"
@@ -37,5 +37,5 @@ const notFound = (
     </div>
 )
 
-const rootElement = document.getElementById("root")
-ReactDOM.render(alt1 ? <App /> : notFound, rootElement)
+const rootElement = ReactDOM.createRoot(document.getElementById("root")!)
+rootElement.render(<React.StrictMode>{alt1 ? <App /> : notFound}</React.StrictMode>)
